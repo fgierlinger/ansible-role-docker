@@ -1,0 +1,29 @@
+---
+# tasks file for ansible-role-docker
+
+- name: ensure directory for storing use flags exists.
+  file:
+      state: directory
+      path: /etc/portage/package.use/
+
+- name: store use flags
+  lineinfile:
+      create: true
+      path: '{{ docker_use_file }}'
+      line: '>=app-emulation/docker-19.03.8 {{ docker_use_flags }}'
+  when:
+      - docker_use_file is defined
+      - docker_use_persist|bool
+
+- name: install docker
+  portage:
+      state: present
+      sync: '{{ docker_portage_sync }}'
+      update: '{{ docker_portage_update }}'
+      package: '{{ docker_portage_package }}'
+
+- name: enable docker
+  service:
+      name: docker
+      state: '{{ docker_service_state }}'
+      enabled: '{{ docker_service_enabled }}'

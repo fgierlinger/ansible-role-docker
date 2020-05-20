@@ -1,0 +1,28 @@
+---
+# defaults file for ansible-role-docker
+# file in which the use flags are stored
+docker_use_file: /etc/portage/package.use/docker
+
+# boolean to decide if use flags should be stored persistent or not
+docker_use_persist: true
+
+# list of use flags to set explicitely
+docker_use_flags: []
+
+# sync package repository first
+# yes .. emerge --sync
+# web .. emerge-webrsync
+# (Choices: web, yes, no)
+docker_portage_sync: web
+
+# update packages to the best version available
+docker_portage_update: false
+
+# package name
+docker_portage_package: 'app-emulation/docker'
+
+# docker service state
+docker_service_state: 'started'
+
+# boolean to decide if service should be enabled at boot
+docker_service_enabled: true
