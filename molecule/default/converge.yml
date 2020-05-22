@@ -4,4 +4,4 @@
   tasks:
     - name: "Include ansible-role-docker"
       include_role:
-        name: "fgierlinger.docker"
+        name: "ansible-role-docker"

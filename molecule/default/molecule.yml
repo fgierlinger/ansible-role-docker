@@ -10,6 +10,7 @@ lint: |
 platforms:
   - name: gentoo-amd64
     image: "fgierlinger/gentoo-amd64:latest"
+    pull: true
     command: "/sbin/init"
     tmpfs:
         - /run

@@ -24,7 +24,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - role: hashlog.docker
+         - role: fgierlinger.docker
 
 License
 -------
