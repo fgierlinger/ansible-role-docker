@@ -26,3 +26,7 @@ docker_service_state: 'started'
 
 # boolean to decide if service should be enabled at boot
 docker_service_enabled: true
+
+# boolean to decide if the docker python library should be installed
+docker_install_pythonlib: true
+docker_portage_pythonlib_package: 'dev-python/docker-py'

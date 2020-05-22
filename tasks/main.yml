@@ -22,6 +22,14 @@
       update: '{{ docker_portage_update }}'
       package: '{{ docker_portage_package }}'
 
+- name: install docker python lib
+  portage:
+      state: present
+      sync: '{{ docker_portage_sync }}'
+      update: '{{ docker_portage_update }}'
+      package: '{{ docker_portage_pythonlib_package }}'
+  when: docker_install_pythonlib|bool
+
 - name: enable docker
   service:
       name: docker
